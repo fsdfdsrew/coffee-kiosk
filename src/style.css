@@ -1,0 +1,67 @@
+:root {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: var(--button-text-color);
+  background-color: #242424;
+
+  --primary-color: #f5d009;
+  --secondary-color: #fafafa;
+  --hover-color: #ccc;
+  --button-text-color: black;
+  --modal-overlay-bg: rgba(0, 0, 0, 0.3);
+  --modal-content-bg: white;
+  --modal-border-radius: 20px;
+  --modal-padding: 10px;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: var(--modal-content-bg);
+  text-decoration: inherit;
+}
+a:hover {
+  color: rgb(215, 215, 215);
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  font-weight: 400;
+  margin: 0;
+  text-align: center;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+button {
+  border: none;
+  color: var(--button-text-color);
+}
+
+#app {
+  width: 375px;
+  height: 667px;
+  background-color: var(--modal-content-bg);
+  overflow: hidden;
+  position: relative;
+  border-radius: var(--modal-border-radius);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
