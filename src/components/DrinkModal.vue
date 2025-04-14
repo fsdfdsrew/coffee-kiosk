@@ -34,7 +34,7 @@
 
 <script setup>
 import { useDrinkStore } from "@/store";
-import { ref, defineProps } from "vue";
+import { ref } from "vue";
 import SyrupModal from "@/components/SyrupModal.vue";
 import SizeSelector from "@/components/SizeSelector.vue";
 

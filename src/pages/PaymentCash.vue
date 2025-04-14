@@ -10,15 +10,15 @@
 <script setup>
 import { ref, watch, onBeforeUnmount } from "vue";
 import { useRouter } from "vue-router";
-import { emulator } from "@/emulator"; // Импортируем эмулятор
+import { emulator } from "@/emulator";
 import { useDrinkStore } from "@/store";
 
 const store = useDrinkStore();
 const router = useRouter();
 
-const enteredAmount = ref(0); // Сумма, введенная пользователем
-const paymentSuccessful = ref(false); // Флаг успешной оплаты
-const paymentFailed = ref(false); // Флаг неудачной оплаты
+const enteredAmount = ref(0);
+const paymentSuccessful = ref(false);
+const paymentFailed = ref(false);
 
 const startCashin = () => {
   emulator.StartCashin((amount) => {

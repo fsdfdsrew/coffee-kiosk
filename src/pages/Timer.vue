@@ -12,17 +12,15 @@ import { ref, computed, onMounted, onBeforeUnmount } from "vue";
 import { useRouter } from "vue-router";
 
 const minutes = ref(0);
-const seconds = ref(20); // Начальное время — 20 секунд
+const seconds = ref(20);
 const router = useRouter();
 
-let timerId = null; // Идентификатор таймера для очистки
+let timerId = null;
 
-// Функция для обновления времени
 const updateTimer = () => {
   if (seconds.value === 0 && minutes.value === 0) {
-    // Таймер закончился, выводим сообщение
     router.push("/ready");
-    clearInterval(timerId); // Останавливаем таймер
+    clearInterval(timerId);
   } else {
     if (seconds.value === 0) {
       minutes.value -= 1;
@@ -33,7 +31,6 @@ const updateTimer = () => {
   }
 };
 
-// Форматируем время для отображения с ведущими нулями
 const formattedTime = computed(() => {
   return `${String(minutes.value).padStart(2, "0")}:${String(
     seconds.value
@@ -41,12 +38,10 @@ const formattedTime = computed(() => {
 });
 
 onMounted(() => {
-  // Запускаем таймер с интервалом 1 секунда
   timerId = setInterval(updateTimer, 1000);
 });
 
 onBeforeUnmount(() => {
-  // Очищаем таймер при размонтировании компонента
   clearInterval(timerId);
 });
 </script>

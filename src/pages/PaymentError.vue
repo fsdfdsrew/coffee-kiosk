@@ -1,5 +1,5 @@
 <template>
-  <div class="payment-error" @keydown="handleKeydown" tabindex="0">
+  <div class="payment-error" tabindex="0">
     <div class="payment-error-message">
       <img src="/assets/error.svg" alt="Банковская карта" class="cup-icon" />
       <h2>Оплата не прошла</h2>
@@ -14,8 +14,6 @@
     </div>
   </div>
 </template>
-
-<script setup></script>
 
 <style scoped>
 .payment-error {

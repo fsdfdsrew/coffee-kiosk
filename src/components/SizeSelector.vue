@@ -22,7 +22,6 @@
 </template>
 
 <script setup>
-import { defineProps, defineEmits } from "vue";
 import CupIcon from "/assets/cup.svg";
 
 const props = defineProps({
@@ -32,12 +31,10 @@ const props = defineProps({
 
 const emit = defineEmits(["select"]);
 
-// Примерная логика масштабирования: от меньшего к большему
 const getScale = (index) => {
   const total = props.sizes.length;
   if (total === 1) return 1;
 
-  // Строим шкалу от 0.7 до 1
   const minScale = 0.7;
   const maxScale = 1;
   const step = (maxScale - minScale) / (total - 1);

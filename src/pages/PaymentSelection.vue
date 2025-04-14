@@ -6,28 +6,17 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { useRouter } from "vue-router";
 
-export default {
-  setup() {
-    const router = useRouter();
+const router = useRouter();
 
-    // Переход на экран с оплатой наличными
-    const goToCashPayment = () => {
-      router.push("/payment-cash");
-    };
+const goToCashPayment = () => {
+  router.push("/payment-cash");
+};
 
-    // Переход на экран с оплатой картой
-    const goToCardPayment = () => {
-      router.push("/payment-card");
-    };
-
-    return {
-      goToCashPayment,
-      goToCardPayment,
-    };
-  },
+const goToCardPayment = () => {
+  router.push("/payment-card");
 };
 </script>
 

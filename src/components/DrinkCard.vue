@@ -7,7 +7,6 @@
 </template>
 
 <script setup>
-import { defineProps } from "vue";
 import { useDrinkStore } from "@/store";
 
 const props = defineProps({

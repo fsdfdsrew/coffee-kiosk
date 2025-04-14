@@ -22,12 +22,11 @@
 </template>
 
 <script setup>
-import { reactive } from "vue";
+import { reactive, onMounted } from "vue";
 import { useDrinkStore } from "@/store";
 
 const store = useDrinkStore();
 
-// Пример списка сиропов
 const syrupList = reactive([
   { name: "Ванильный сироп", amount: 0 },
   { name: "Мятный сироп", amount: 0 },
@@ -35,11 +34,30 @@ const syrupList = reactive([
   { name: "Шоколадный сироп", amount: 0 },
 ]);
 
+onMounted(() => {
+  const currentSyrups = store.state.selectedSyrups;
+
+  syrupList.forEach((syrup) => {
+    syrup.amount = 0;
+  });
+
+  currentSyrups.forEach((syrupFromStore) => {
+    const matchingSyrup = syrupList.find((s) => s.name === syrupFromStore.name);
+    if (matchingSyrup) {
+      matchingSyrup.amount += 5;
+    }
+  });
+});
+
 function updateSyrup(syrup, delta) {
   syrup.amount += delta;
   if (syrup.amount < 0) syrup.amount = 0;
-  if (delta > 0) store.addSyrup(syrup);
-  else store.removeSyrup(syrup);
+
+  if (delta > 0) {
+    store.addSyrup({ name: syrup.name });
+  } else {
+    store.removeSyrup({ name: syrup.name });
+  }
 }
 </script>
 

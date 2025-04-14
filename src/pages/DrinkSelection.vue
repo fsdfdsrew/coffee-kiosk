@@ -99,7 +99,7 @@ const computedbackgroundColor = computed(() =>
 .app-panel {
   position: relative;
   z-index: 2;
-  height: 100%; /* Всегда полностью заполняет #app */
+  height: 100%;
   display: flex;
   flex-direction: column;
   flex: 1;

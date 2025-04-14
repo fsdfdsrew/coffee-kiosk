@@ -15,29 +15,26 @@
 </template>
 
 <script setup>
-import { ref, watch } from "vue"; // Импортируем ref из Vue для реактивности
-import { emulator } from "@/emulator"; // Импортируем эмулятор
+import { ref, watch } from "vue";
+import { emulator } from "@/emulator";
 import { useDrinkStore } from "@/store";
 import { useRouter } from "vue-router";
 
 const store = useDrinkStore();
 const router = useRouter();
 
-const paymentMessage = ref(""); // Сообщения с пин-пада
-const paymentSuccessful = ref(false); // Флаг успешной оплаты
+const paymentMessage = ref("");
+const paymentSuccessful = ref(false);
 
-// Обработчик нажатия клавиш
 const handleKeydown = (event) => {
   if (event.key === " ") {
-    // Если нажата клавиша пробела, запускаем функцию оплаты
     startCardPayment();
   }
 };
 
-// Функция для начала оплаты картой
 const startCardPayment = () => {
   paymentMessage.value = "Приложите карту...";
-  // Эмуляция оплаты картой
+
   emulator.BankCardPurchase(
     store.getFinalPrice,
     (result) => {
@@ -51,7 +48,7 @@ const startCardPayment = () => {
       }
     },
     (message) => {
-      paymentMessage.value = message; // Показать сообщения с пин-пада
+      paymentMessage.value = message;
     }
   );
 };

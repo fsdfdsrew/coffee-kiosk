@@ -15,7 +15,6 @@ import CategoryButton from "@/components/CategoryButton.vue";
 
 const store = useDrinkStore();
 
-// Уникальные категории из массива напитков
 const categories = computed(() => {
   const categoriesSet = new Set();
   store.state.drinks.forEach((drink) => categoriesSet.add(drink.category));

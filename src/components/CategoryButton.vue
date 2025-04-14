@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import { computed, defineProps } from "vue";
+import { computed } from "vue";
 import { useDrinkStore } from "@/store";
 
 const props = defineProps({
